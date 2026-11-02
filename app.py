@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
-import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import SVC
 
 # Set page configuration
@@ -11,10 +9,6 @@ st.set_page_config(page_title="Spam Email Classifier", page_icon="✉️", layou
 # Title and description
 st.title("✉️ Spam Email Classifier")
 st.write("This application uses Machine Learning to classify incoming emails or messages as **Spam** or **Ham (Legitimate)**.")
-
-# We'll load pre-trained models. For this demo, let's train a quick one if not loaded, 
-# but in production, you should save your models using joblib:
-# joblib.dump(model, 'svm_model.pkl') and joblib.dump(vectorizer, 'vectorizer.pkl')
 
 @st.cache_resource
 def load_classifier_and_vectorizer():
